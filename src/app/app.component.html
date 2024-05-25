@@ -59,9 +59,9 @@
     </ng-container>
     <ng-container matColumnDef="action">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> Actoin </th>
-      <td mat-cell *matCellDef="let row"> 
-        <button mat-icon-button color="primary"><mat-icon>Edit</mat-icon></button>
-        <button mat-icon-button color="warn"><mat-icon>Delete</mat-icon></button>
+      <td mat-cell *matCellDef="let row">
+        <button mat-icon-button color="primary" (click)="onEdit(row)"><mat-icon>Edit</mat-icon></button>
+        <button mat-icon-button color="warn" (click)="onDelete(row.id)"><mat-icon>Delete</mat-icon></button>
       </td>
     </ng-container>
 

@@ -25,8 +25,7 @@
   ],
   "employee": [
     {
-      "id": "fc23",
-      "firstName": "mib",
+      "firstName": "mibbbb",
       "lastName": "bim",
       "email": "mib@mib.com",
       "dob": "2024-04-18T07:00:00.000Z",
@@ -34,31 +33,32 @@
       "designation": "Post-Degree",
       "company": "agilysys",
       "experience": 2,
-      "package": 3
+      "package": 3,
+      "id": "fc23"
     },
     {
-      "id": "67fa",
-      "firstName": "naziya",
-      "lastName": "sareen",
-      "email": "naz@naz.com",
-      "dob": "2023-12-16T08:00:00.000Z",
-      "gender": "male",
-      "designation": "Engineer",
-      "company": "banglore",
-      "experience": 5,
-      "package": 7
+      "id": "21f8",
+      "firstName": "arshu",
+      "lastName": "afroase",
+      "email": "ars@ars.com",
+      "dob": "2024-05-10T07:00:00.000Z",
+      "gender": "female",
+      "designation": "Degree",
+      "company": "sd",
+      "experience": 3,
+      "package": 5
     },
     {
-      "id": "a3a9",
-      "firstName": "nazib",
-      "lastName": "ibnaz",
-      "email": "nazib@mib.com",
-      "dob": "2024-02-06T08:00:00.000Z",
+      "id": "5222",
+      "firstName": "mohammed",
+      "lastName": "ibrahim",
+      "email": "ibrajhim@mail.com",
+      "dob": "2024-05-07T07:00:00.000Z",
       "gender": "male",
-      "designation": "Mechanic",
-      "company": "mib",
-      "experience": 7,
-      "package": 19
+      "designation": "Post-Degree",
+      "company": "deen",
+      "experience": 2,
+      "package": 11
     }
   ],
   "profile": {

@@ -12,7 +12,7 @@ import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { DatePipe } from '../app/date.pipe';
-
+import { SnackService } from './core/snack.service';
 
 @Component({
   selector: 'app-root',
@@ -31,7 +31,7 @@ import { DatePipe } from '../app/date.pipe';
     MatSortModule,
     MatPaginatorModule,
     DatePipe,
-    MatIconModule
+    MatIconModule,
   ],
 })
 export class AppComponent implements OnInit {
@@ -53,14 +53,38 @@ export class AppComponent implements OnInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  constructor(private _dialog: MatDialog, private _empServ: EmployeeService) {}
+  constructor(
+    private _dialog: MatDialog,
+    private _empServ: EmployeeService,
+    private _snack: SnackService
+  ) {}
 
   ngOnInit(): void {
     this.getEmployeeList();
   }
 
   empAddEdit() {
-    this._dialog.open(EmpAddEditComponent);
+    const dialogRef = this._dialog.open(EmpAddEditComponent);
+    dialogRef.afterClosed().subscribe({
+      next: (bool) => {
+        if (bool) {
+          this.getEmployeeList();
+        }
+      },
+    });
+  }
+
+  onEdit(data: any) {
+    const dialogRef = this._dialog.open(EmpAddEditComponent, {
+      data,
+    });
+    dialogRef.afterClosed().subscribe({
+      next: (bool) => {
+        if (bool) {
+          this.getEmployeeList();
+        }
+      },
+    });
   }
 
   getEmployeeList() {
@@ -73,6 +97,18 @@ export class AppComponent implements OnInit {
       error: (err: any) => {
         console.error(err);
       },
+    });
+  }
+
+  onDelete(id: any) {
+    console.log('delID', id);
+    this._empServ.deleteEmpData(id).subscribe({
+      next: (res: any) => {
+        // alert('Employee Deleted Successfull');
+        this._snack.openSnackBar('Employee Deleted Successfull', 'Done');
+        this.getEmployeeList();
+      },
+      error: (err) => console.error(err),
     });
   }
 
